@@ -44,7 +44,7 @@ function cartPage(cart)
         <div class="cart-product">
 
             <div class="cart-image">
-                <img src="../images/${prod.image}">
+                <img src="../Images/${prod.image}">
             </div>
 
             <div class="cart-product-details">

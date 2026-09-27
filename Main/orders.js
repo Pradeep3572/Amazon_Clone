@@ -32,7 +32,7 @@
             html+=`
                         <div class="placedItems">
                         <div class="img-cnt">
-                            <img src="../images/${prod.image}">
+                            <img src="../Images/${prod.image}">
                         </div> 
                         <div class="info">
                             <span>${prod.name} </span>
