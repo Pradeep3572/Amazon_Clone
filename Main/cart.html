@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="checkout-header">
+        <a href="amazon.html" target="_self" class="amazon-border">
+        <img
+            src="../images/amazon-logo-black.png"
+            class="amazon-logo">
+        </a>
+        <h1>
+            Checkout
+            (<span class="checkout-count"> </span>)
+        </h1>
+
+        <img
+            src="../images/lock-icon.png"
+            class="lock-icon"
+        >
+    </div>
+
+    <main class="checkout-main">
+
+        <section class="cart-section">
+
+            <h2>Review your order</h2>
+
+            
+            <div class="cart-main">
+                <!-- JS will insert cart items here -->
+            </div>
+
+        </section>
+
+        <section class="order-summary">
+
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+                <span class="cart-items"></span>
+                <span class="cart-cost"></span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping &amp; handling:</span>
+                <span class="cart-shipping"></span>
+            </div>
+            <hr>
+            <div class="summary-row">
+                <span>Total before tax:</span>
+                <span class="cart-before-tax"></span>
+            </div>
+            <div class="summary-row">
+                <span>Estimated tax (10%):</span>
+                <span class="cart-estimated-tax"></span>
+            </div>
+            <hr>
+            <div class="order-total">
+                <span>Order total:</span>
+                <span class="cart-total"></span>
+            </div>
+            <a href="orders.html" target="_self">
+            <button class="place-order">
+                Place your order
+            </button>
+            </a>
+        </section>
+    </main>
+<script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>
+<script type="module" src="cart.js"></script>
+</body>
+</html>
