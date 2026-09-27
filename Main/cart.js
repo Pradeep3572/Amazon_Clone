@@ -368,7 +368,7 @@ if(!cart.length>0)
                 Your cart is Empty
             </div>
 
-            <a href="index.html" target="_self">
+            <a href="../index.html" target="_self">
                 <button class="view">
                     View Products
                 </button>
