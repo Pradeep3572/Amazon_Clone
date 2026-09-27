@@ -114,13 +114,13 @@ let html=''
 item.forEach((item)=>{
     html+=`<div class="items">
                 <div class="product-image">
-                    <img src="../Images/${item.image}" class="product-pic" >    
+                    <img src="Image/${item.image}" class="product-pic" >    
                 </div>
                 <div class="product-name">
                     <p>${item.name}</p>
                 </div>
                 <div class="product-rating">
-                    <img src="../Images/${item.ratings.stars}" class="ratings-img">
+                    <img src="Image/${item.ratings.stars}" class="ratings-img">
                     <span class="rating-num">${item.ratings.num}</span>
                 </div>
                 <div class="product-price">
@@ -158,7 +158,7 @@ document.querySelectorAll('.add-to-cart').forEach((button,index)=>
     let timer,qty;
     button.addEventListener('click',()=>{
         qty=Number(document.querySelectorAll('.total-quantity')[index].value);
-        document.querySelectorAll('.success')[index].innerHTML=`<img src="../Images/checkmark.png" class="checkmark"> Added`;
+        document.querySelectorAll('.success')[index].innerHTML=`<img src="Image/checkmark.png" class="checkmark"> Added`;
       
         clearTimeout(timer);
         timer=setTimeout(()=>{
@@ -207,13 +207,13 @@ function findProduct()
         newcart.forEach((item)=>{
             newhtml+=`<div class="items">
                 <div class="product-image">
-                    <img src="../Images/${item.image}" class="product-pic" >    
+                    <img src="Image/${item.image}" class="product-pic" >    
                 </div>
                 <div class="product-name">
                     <p>${item.name}</p>
                 </div>
                 <div class="product-rating">
-                    <img src="../Images/${item.ratings.stars}" class="ratings-img">
+                    <img src="Image/${item.ratings.stars}" class="ratings-img">
                     <span class="rating-num">${item.ratings.num}</span>
                 </div>
                 <div class="product-price">
