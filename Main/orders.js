@@ -4,6 +4,10 @@
     retunsAndOrders.push(placedOrder);
     localStorage.setItem('returnItems',JSON.stringify(retunsAndOrders));
     console.log(retunsAndOrders);   
+    let total=0;
+    placedOrder.forEach(cost => {
+        total+=Number(cost.price.replace('Rs','').replace(",",""))*cost.qty
+    });
     function orderItems()
     {
         console.log(Math.random())
@@ -18,7 +22,7 @@
 
                             <div class="total">
                                 <strong>Total:</strong>
-                                <span>₹198.64</span>
+                                <span>₹${JSON.parse(localStorage.getItem('Final Bill'))}</span>
                             </div>
 
                             <div class="orderid">
@@ -68,3 +72,12 @@ document.addEventListener('keydown',(event)=>{
         event.preventDefault();
     }
 })
+
+
+
+function buyAgain()
+{
+    document.querySelectorAll('.buy-again').addEventListener('click',()=>{
+
+    })
+}

@@ -71,6 +71,7 @@
         height: 40px;
         border-radius: 8px;
         border: 0px solid;
+        padding-left: 15px;
     }
     
     .search-bar::placeholder
