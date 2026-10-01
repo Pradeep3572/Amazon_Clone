@@ -397,5 +397,9 @@
                     </button>
                 </a>
             `;
+        document.querySelector('.place-order').disabled = true;
+    }
+    else{
+        document.querySelector('.place-order').disabled = false;
     }
     console.log(placedOrder);
