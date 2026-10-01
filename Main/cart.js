@@ -180,6 +180,10 @@
 
     function orderSummary()
     {
+        if (cart.length===0)
+        {
+            return
+        }
         let cartCost=0;
         let beforeTax=0;
         let cartItems=0
@@ -338,30 +342,46 @@
         updateButton();
     }
     updateButton();
+
     function placeOrder() {
 
-        document.querySelector(".place-order").addEventListener('click', () => {
-            const newOrder=saveOrder();
-                let returnsAndOrders =
-                JSON.parse(localStorage.getItem("returnItems")) || [];
+    document.querySelector(".place-order").addEventListener('click', () => {
 
-            returnsAndOrders.push({
-                orderDate: presentDate,
-                items: newOrder
-            });
-            localStorage.setItem(
-                "returnItems",
-                JSON.stringify(returnsAndOrders)
-            );
-            shippingCost=0;
-            localStorage.removeItem('shipping-cost');
-            cart.forEach((prod) => {
-                localStorage.removeItem(`delivery-${prod.id}`);
-            });
-            console.log("Order placed on:", presentDate);
-            console.log("Placed order:", placedOrder);
+        const finalBill =
+            JSON.parse(localStorage.getItem('Final Bill'));
+
+        console.log("Current Final Bill:", finalBill);
+
+        let bill =
+            JSON.parse(localStorage.getItem('Final Bills')) || [];
+
+        console.log("Bills BEFORE push:", bill);
+
+        bill.push(finalBill);
+
+        console.log("Bills AFTER push:", bill);
+
+        localStorage.setItem(
+            'Final Bills',
+            JSON.stringify(bill)
+        );
+
+        const newOrder = saveOrder();
+
+        cart.forEach((prod) => {
+            localStorage.removeItem(`delivery-${prod.id}`);
         });
-    }
+
+        shippingCost = 0;
+        localStorage.removeItem('shipping-cost');
+
+        console.log("All orders:", placedOrder);
+        console.log(
+            "Final Bills in storage:",
+            JSON.parse(localStorage.getItem('Final Bills'))
+        );
+    });
+}
 
     placeOrder();
     if(!cart.length>0)

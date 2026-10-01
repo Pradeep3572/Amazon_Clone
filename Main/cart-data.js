@@ -12,22 +12,31 @@
 
     export let presentDate = JSON.parse(localStorage.getItem('date'));
     
-    export function saveOrder() {
-        presentDate = dayjs().format('MMMM D');
-        placedOrder = structuredClone(cart);
-        localStorage.setItem(
-            'placed-order',
-            JSON.stringify(placedOrder)
-        );
-        localStorage.setItem(
-            'date',
-            JSON.stringify(presentDate)
-        );
-        cart.length = 0;
-        localStorage.setItem(
-            'cart-items',
-            JSON.stringify(cart)
-        );
-        return placedOrder;
-    }
+    export function saveOrder() 
+    {
+    presentDate = dayjs().format('MMMM D');
+
+    const newOrder = structuredClone(cart);
+
+    placedOrder.push(newOrder);
+
+    localStorage.setItem(
+        'placed-order',
+        JSON.stringify(placedOrder)
+    );
+
+    localStorage.setItem(
+        'date',
+        JSON.stringify(presentDate)
+    );
+
+    cart.length = 0;
+
+    localStorage.setItem(
+        'cart-items',
+        JSON.stringify(cart)
+    );
+
+    return newOrder;
+}
     

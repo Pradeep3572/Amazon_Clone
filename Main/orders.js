@@ -1,19 +1,17 @@
     import { placedOrder,presentDate} from "./cart-data.js";
     console.log(placedOrder);
-    let retunsAndOrders=JSON.parse(localStorage.getItem('returnItems'))||[]
-    retunsAndOrders.push(placedOrder);
-    localStorage.setItem('returnItems',JSON.stringify(retunsAndOrders));
-    console.log(retunsAndOrders);   
-    let total=0;
-    placedOrder.forEach(cost => {
-        total+=Number(cost.price.replace('Rs','').replace(",",""))*cost.qty
-    });
+   
+    
     function orderItems()
     {
-        console.log(Math.random())
-        const num = Math.floor(10000 + Math.random() * 90000);
-        let html=`<div class="outer">
+        const finalBills =JSON.parse(localStorage.getItem('Final Bills')) || [];
+        console.log(finalBills);
+        placedOrder.forEach((order,index)=>{
+        
+        let total=finalBills[index];
 
+            const num = Math.floor(10000 + Math.random() * 90000);
+            let html=`<div class="outer">
                         <div class="itemHeader">
                             <div class="orderplaced">
                                 <strong>Order Placed:</strong>
@@ -22,7 +20,7 @@
 
                             <div class="total">
                                 <strong>Total:</strong>
-                                <span>₹${JSON.parse(localStorage.getItem('Final Bill'))}</span>
+                                <span>₹${total}</span>
                             </div>
 
                             <div class="orderid">
@@ -31,17 +29,16 @@
                             </div>
                         </div>
                         `;
-       
-        placedOrder.forEach((prod)=>{
-            html+=`
+            order.forEach(item=>{
+                html+=`
                         <div class="placedItems">
                         <div class="img-cnt">
-                            <img src="../Images/${prod.image}">
+                            <img src="../Images/${item.image}">
                         </div> 
                         <div class="info">
-                            <span>${prod.name} </span>
-                            <span>Arriving on ${prod.deliveryDate} </span>
-                            <span>Qty:${prod.qty} </span>
+                            <span>${item.name} </span>
+                            <span>Arriving on ${item.deliveryDate} </span>
+                            <span>Qty:${item.qty} </span>
                             <button class="buy-again">
                             Buy it again
                             </button>
@@ -53,12 +50,12 @@
                         </div>
                        </div>`
 
+            });
+             html += `</div>`;
+         document.querySelector('.body').innerHTML+=html;
         });
-         html += `</div>`;
-         document.querySelector('.body').innerHTML=html;
     }
-    orderItems();
-
+orderItems();
 const xhr = new XMLHttpRequest();
 xhr.addEventListener('load',()=>{
     console.log(xhr.response)
@@ -81,3 +78,4 @@ function buyAgain()
 
     })
 }
+
