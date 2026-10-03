@@ -1,7 +1,11 @@
     import { placedOrder,presentDate,item,cart} from "./cart-data.js";
     console.log(placedOrder);
-   
-    
+    let num=JSON.parse(localStorage.getItem('uuid'))||[];
+    for(let i=num.length;i<placedOrder.length;i++)
+    {
+        num.push(crypto.randomUUID());
+        localStorage.setItem('uuid',JSON.stringify(num));
+    }
     function orderItems()
     {
         const finalBills =JSON.parse(localStorage.getItem('Final Bills')) || [];
@@ -9,8 +13,6 @@
         placedOrder.forEach((order,index)=>{
         
         let total=finalBills[index];
-
-            const num = Math.floor(10000 + Math.random() * 90000);
             let html=`<div class="outer">
                         <div class="itemHeader">
                             <div class="orderplaced">
@@ -25,7 +27,7 @@
 
                             <div class="orderid">
                                 <strong>Order ID:</strong>
-                                <span>${num}</span>
+                                <span>${num[index]}</span>
                             </div>
                         </div>
                         `;
@@ -39,11 +41,13 @@
                             <span>${item.name} </span>
                             <span>Arriving on ${item.deliveryDate} </span>
                             <span>Qty:${item.qty} </span>
+                            <a href="cart.html" target="_self"> 
                             <button class="buy-again">
                             Buy it again
                             </button>
+                            </a>
                         </div>
-                        <div class="tracking">    
+                        <div class="tracking">   
                             <button class="track">
                             Track package
                             </button>
