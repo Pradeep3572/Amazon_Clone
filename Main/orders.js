@@ -1,4 +1,4 @@
-    import { placedOrder,presentDate} from "./cart-data.js";
+    import { placedOrder,presentDate,item,cart} from "./cart-data.js";
     console.log(placedOrder);
    
     
@@ -31,7 +31,7 @@
                         `;
             order.forEach(item=>{
                 html+=`
-                        <div class="placedItems">
+                        <div class="placedItems" data-id="${item.id}">
                         <div class="img-cnt">
                             <img src="../Images/${item.image}">
                         </div> 
@@ -56,12 +56,14 @@
         });
     }
 orderItems();
+/*
 const xhr = new XMLHttpRequest();
 xhr.addEventListener('load',()=>{
     console.log(xhr.response)
 })
 xhr.open('GET','https://supersimplebackend.dev/products')
 xhr.send()
+*/
 
 document.addEventListener('keydown',(event)=>{
     if(event.key==='F12'||event.ctrlKey&&event.shiftKey&&event.key.toLowerCase()==='i')
@@ -70,12 +72,38 @@ document.addEventListener('keydown',(event)=>{
     }
 })
 
-
-
-function buyAgain()
-{
-    document.querySelectorAll('.buy-again').addEventListener('click',()=>{
-
+let element=JSON.parse(localStorage.getItem('again'))||[];
+    document.querySelectorAll('.buy-again').forEach((button)=>{
+        button.addEventListener('click',(event)=>{
+        let id=event.target.closest(".placedItems").dataset.id;
+        item.forEach((item)=>{
+            if(item.id===Number(id))
+            {
+                element=item;
+                localStorage.setItem('again',JSON.stringify(element));
+                return;
+            }
+        })
+let found=true;
+        cart.forEach((item)=>{
+            if(item.id===element.id)
+            {
+                item.qty+=1;
+                found=false;
+            }
+        })
+            if(found)
+            {
+                cart.push({
+                id:element.id,
+                name:element.name,
+                price:element.price,
+                image:element.image,
+                qty:1
+                })
+            }
+            localStorage.setItem('cart-items',JSON.stringify(cart));
+        })
+        
     })
-}
-
+    
