@@ -76,7 +76,6 @@ document.querySelectorAll('.add-to-cart').forEach((button,index)=>
             }
         
         localStorage.setItem('cart-items',JSON.stringify(cart));
-        console.log(cart);
         document.querySelector('.cart-value').innerHTML=getCartCount();;
     });
         
@@ -140,7 +139,6 @@ function findProduct()
         }
         else{
              document.querySelector('.products').innerHTML=`<h3 style='color:red'>No products matched your results</h3>`;
-             console.log('No')
         }
         if(searched==='')
         {

@@ -1,5 +1,4 @@
     import { placedOrder,presentDate,item,cart} from "./cart-data.js";
-    console.log(placedOrder);
     let num=JSON.parse(localStorage.getItem('uuid'))||[];
     for(let i=num.length;i<placedOrder.length;i++)
     {
@@ -9,7 +8,6 @@
     function orderItems()
     {
         const finalBills =JSON.parse(localStorage.getItem('Final Bills')) || [];
-        console.log(finalBills);
         placedOrder.forEach((order,index)=>{
         
         let total=finalBills[index];
@@ -35,12 +33,12 @@
                 html+=`
                         <div class="placedItems" data-id="${item.id}">
                         <div class="img-cnt">
-                            <img src="../Images/${item.image}">
+                            <img class="img" src="../Images/${item.image}">
                         </div> 
                         <div class="info">
-                            <span>${item.name} </span>
-                            <span>Arriving on ${item.deliveryDate} </span>
-                            <span>Qty:${item.qty} </span>
+                            <span class="name">${item.name} </span>
+                            <span class="date">Arriving on ${item.deliveryDate} </span>
+                            <span class="qty">Qty:${item.qty} </span>
                             <a href="cart.html" target="_self"> 
                             <button class="buy-again">
                             Buy it again
@@ -111,3 +109,4 @@ let found=true;
         
     })
     
+

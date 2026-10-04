@@ -219,7 +219,6 @@
             const selected = document.querySelector(
                 `input[name="delivery-${prod.id}"]:checked`
             );
-            console.log(selected);
             selected ? shippingCost += Number(selected.value) :0;
         });
         document.querySelector('.cart-shipping').innerHTML=`₹ ${shippingCost}`; 
@@ -242,7 +241,6 @@
                 localStorage.removeItem(`delivery-${id}`);
                 }
                 localStorage.setItem('cart-items',JSON.stringify(cart));
-                console.log(cart);
                 cartPage(cart);
                 deliveryPrice();
                 initializeCartButtons();
@@ -305,7 +303,6 @@
             button.addEventListener('click',()=>{
                 const id=Number(button.dataset.id);
                 let cartItem=cart.find((item)=>{return item.id===id})
-                console.log(cartItem);
                 let found=true;
                 while(found)
                 {                
@@ -319,7 +316,6 @@
                 if(quantity>0 &&  Number.isInteger(quantity))
                 {
                     cartItem.qty=Number(quantity);
-                    console.log(cart);
                     localStorage.setItem('cart-items',JSON.stringify(cart));
                     found=false;
                 }
@@ -350,16 +346,13 @@
         const finalBill =
             JSON.parse(localStorage.getItem('Final Bill'));
 
-        console.log("Current Final Bill:", finalBill);
 
         let bill =
             JSON.parse(localStorage.getItem('Final Bills')) || [];
 
-        console.log("Bills BEFORE push:", bill);
 
         bill.push(finalBill);
 
-        console.log("Bills AFTER push:", bill);
 
         localStorage.setItem(
             'Final Bills',
@@ -375,11 +368,7 @@
         shippingCost = 0;
         localStorage.removeItem('shipping-cost');
 
-        console.log("All orders:", placedOrder);
-        console.log(
-            "Final Bills in storage:",
-            JSON.parse(localStorage.getItem('Final Bills'))
-        );
+    
     });
 }
 
@@ -402,4 +391,3 @@
     else{
         document.querySelector('.place-order').disabled = false;
     }
-    console.log(placedOrder);
