@@ -15,7 +15,7 @@
                         <div class="itemHeader">
                             <div class="orderplaced">
                                 <strong>Order Placed:</strong>
-                                <span>${presentDate}</span>
+                                <span class="orderPlaced" data-order="${presentDate}">${presentDate}</span>
                             </div>
 
                             <div class="total">
@@ -109,4 +109,29 @@ let found=true;
         
     })
     
+console.log(placedOrder);
 
+let tracker=JSON.parse(localStorage.getItem('tracker'))||[];
+document.querySelectorAll(".track").forEach((button)=>{
+    button.addEventListener('click',(event)=>
+    {
+        let placed=event.target.closest('.placedItems')
+        let id=placed.dataset.id;
+        let orderPlaced=placed.closest(".outer").querySelector(".orderPlaced").dataset.order;
+        let date=placed.querySelector(".date").textContent;
+        date=date.replace("Arriving on ","").trim();
+        placedOrder.forEach((outer)=>{
+
+            outer.forEach(inner=>{
+                if(inner.id==id && inner.deliveryDate===date)
+                {
+                    tracker={...inner,orderDate:orderPlaced};
+                    localStorage.setItem('tracker',JSON.stringify(tracker))
+                    console.log(tracker);
+                }
+                
+            })
+        })
+    })
+})
+console.log(tracker)
