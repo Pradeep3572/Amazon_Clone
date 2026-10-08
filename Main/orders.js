@@ -5,10 +5,12 @@
         num.push(crypto.randomUUID());
         localStorage.setItem('uuid',JSON.stringify(num));
     }
+ 
     function orderItems()
     {
-        const finalBills =JSON.parse(localStorage.getItem('Final Bills')) || [];
-        placedOrder.forEach((order,index)=>{
+        let finalBills =JSON.parse(localStorage.getItem('Final Bills')) || [];
+        finalBills.reverse();
+        placedOrder.reverse().forEach((order,index)=>{
         
         let total=finalBills[index];
             let html=`<div class="outer">
