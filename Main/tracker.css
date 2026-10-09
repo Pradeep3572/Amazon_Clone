@@ -31,8 +31,9 @@
 
 .trac-img
 {
-    height: 180px;
-    width: 200px;
+    margin-top: 15px;
+    height: 100%;
+    width: 150px;
     left: 10px;
 }
 .timeline
@@ -60,4 +61,8 @@
     height: 100%;
     background-color: green;
     border-radius: 0 20px 20px 0;
+}
+.quantity
+{
+    margin-bottom: 10px;
 }

@@ -48,9 +48,11 @@
                             </a>
                         </div>
                         <div class="tracking">   
-                            <button class="track">
-                            Track package
-                            </button>
+                            <a href="./tracker.html">
+                                <button class="track">
+                                Track package
+                                </button>
+                            </a>
                         </div>
                        </div>`
 

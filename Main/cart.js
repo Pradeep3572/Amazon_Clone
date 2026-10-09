@@ -336,6 +336,7 @@
         radioListener();
         deleteCart();
         updateButton();
+        refresh();
     }
     updateButton();
 
@@ -372,6 +373,8 @@
     });
 }
 
+    function refresh()
+    {
     placeOrder();
     if(!cart.length>0)
     {
@@ -387,7 +390,10 @@
                 </a>
             `;
         document.querySelector('.place-order').disabled = true;
+        document.querySelector('.checkout-count').textContent=`0 Items`;
     }
     else{
         document.querySelector('.place-order').disabled = false;
     }
+}
+refresh();
