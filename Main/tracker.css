@@ -4,3 +4,60 @@
     align-items: center;
     justify-content: center;
 }
+.orders-container
+{
+    position: relative;
+    top: 100px;
+    width: 900px;
+    margin-left: 300px;
+    background-color: pink;
+    height:100% ;
+}
+.view-products
+{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.arrival
+{
+    margin-bottom: 0;
+}
+.product-name-tracker
+{
+    margin-top: 8px;
+    margin-bottom:6px;
+}
+
+.trac-img
+{
+    height: 180px;
+    width: 200px;
+    left: 10px;
+}
+.timeline
+{
+    margin-top: 30px;
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight:500;
+}
+
+.progress {
+    width: 800px;
+    height: 30px;
+    border: 1px solid grey;
+    background-color: beige;
+    border-radius: 25px;
+    margin-top: 10px;
+    overflow: hidden;   
+}
+
+.bar {
+    width: 30%;
+    height: 100%;
+    background-color: green;
+    border-radius: 0 20px 20px 0;
+}

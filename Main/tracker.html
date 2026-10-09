@@ -1,39 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tracking</title>
-    <link rel="stylesheet" href="amazon.css">
-</head>
-<body>
-    <div class="main">
-        <div class="header">
-            <div class="logo">
-                <img src="../Images/amazon-logo-white.png" alt="amazon logo" class="amazon-logo">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tracking</title>
+        <link rel="stylesheet" href="amazon.css">
+        <link rel="stylesheet" href="tracker.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+                <div class="logo">
+                    <img src="../Images/amazon-logo-white.png" alt="amazon logo" class="amazon-logo">
+                </div>
+                <div class="search" >
+                    <input type="search" class="search-bar" placeholder="Search">
+                    <img src="../Images/search-icon.png" alt="search-icon" class="search-icon">
+                </div>
+                <div class="return">
+                    <a href="orders.html" target="_self" class="return-btn">
+                    <div>Returns</div>
+                    <div><b>& Orders</b></div>
+                    </a>
+                </div>
+                <div class="cart">
+                    <a href="cart.html" target="_self">
+                    <img src="../Images/cart-icon.png" alt="cart" class="cart-icon">
+                    <b class="cart-text">Cart</b>
+                    <p class="cart-value"><b></b></p>
+                    </a>
+                </div>
             </div>
-            <div class="search" >
-                <input type="search" class="search-bar" placeholder="Search">
-                <img src="../Images/search-icon.png" alt="search-icon" class="search-icon">
-            </div>
-            <div class="return">
-                <a href="orders.html" target="_self" class="return-btn">
-                <div>Returns</div>
-                <div><b>& Orders</b></div>
+            <div class="orders-container">
+
+                <div class="view-products">
+                <a href="orders.html" class="link">
+                    View all products
                 </a>
+                <h2 class="arrival">Arriving on </h2>
+                <p class="product-name-tracker">ABC</p>
+                <span class="quantity">1</span>
+                <div class="prod-img">
+                    <img class="trac-img" src="../Images/bat.webp">
+                </div>
+                <div class="timeline">
+                    <span class="stage1">Preparing</span>
+                    <span class="stage2"> Shipped</span>
+                    <span class="stage3">Delivered</span>
+
+                </div>
+                <div class="progress">
+                    <div class="bar"></div>
+                </div>
+                </div>
             </div>
-            <div class="cart">
-                <a href="cart.html" target="_self">
-                <img src="../Images/cart-icon.png" alt="cart" class="cart-icon">
-                <b class="cart-text">Cart</b>
-                <p class="cart-value"><b></b></p>
-                </a>
             </div>
-        </div>
-        <div class="orders-container">
-            <a href="orders.html" class="link">
-                View all products
-            </a>
-        </div>
-        </div>
-    </body>
+        </body>
