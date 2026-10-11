@@ -180,10 +180,19 @@
 
     function orderSummary()
     {
-        if (cart.length===0)
-        {
-            return
-        }
+        if (cart.length === 0) {
+        document.querySelector(".cart-items").innerHTML = "Items (0):";
+        document.querySelector(".cart-cost").innerHTML = "₹ 0.00";
+        document.querySelector(".cart-shipping").innerHTML = "₹ 0.00";
+        document.querySelector(".cart-before-tax").innerHTML = "₹ 0.00";
+        document.querySelector(".cart-estimated-tax").innerHTML = "₹ 0.00";
+        document.querySelector(".cart-total").innerHTML = "₹ 0.00";
+        document.querySelector(".checkout-count").innerHTML = "0 Items";
+
+        localStorage.removeItem("Final Bill");
+
+        return;
+    }
         let cartCost=0;
         let beforeTax=0;
         let cartItems=0
@@ -340,42 +349,30 @@
     }
     updateButton();
 
-    function placeOrder() {
-
+function placeOrder() {
     document.querySelector(".place-order").addEventListener('click', () => {
-
         const finalBill =
             JSON.parse(localStorage.getItem('Final Bill'));
-
-
         let bill =
             JSON.parse(localStorage.getItem('Final Bills')) || [];
-
-
         bill.push(finalBill);
-
-
         localStorage.setItem(
             'Final Bills',
             JSON.stringify(bill)
         );
-
         const newOrder = saveOrder();
-
         cart.forEach((prod) => {
             localStorage.removeItem(`delivery-${prod.id}`);
         });
-
         shippingCost = 0;
         localStorage.removeItem('shipping-cost');
-
-    
     });
 }
 
+placeOrder(); 
+
     function refresh()
     {
-    placeOrder();
     if(!cart.length>0)
     {
         document.querySelector('.cart-main').innerHTML = `

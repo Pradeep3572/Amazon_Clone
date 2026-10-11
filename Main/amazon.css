@@ -95,8 +95,8 @@
     .cart-value
     {
         position: absolute;
-        top:-16px;
-        left: 19px;
+        top:-13px;
+        left: 20px;
         color: orange;
         font-size: 15px;
     }

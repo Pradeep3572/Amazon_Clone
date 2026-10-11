@@ -1,11 +1,11 @@
-    import { placedOrder,presentDate,item,cart} from "./cart-data.js";
+    import { placedOrder,presentDate,item,cart,getCartCount} from "./cart-data.js";
     let num=JSON.parse(localStorage.getItem('uuid'))||[];
     for(let i=num.length;i<placedOrder.length;i++)
     {
         num.push(crypto.randomUUID());
         localStorage.setItem('uuid',JSON.stringify(num));
     }
- 
+    num.reverse()
     function orderItems()
     {
         let finalBills =JSON.parse(localStorage.getItem('Final Bills')) || [];
@@ -139,3 +139,4 @@ document.querySelectorAll(".track").forEach((button)=>{
     })
 })
 console.log(tracker)
+document.querySelector(".cart-value").textContent=getCartCount();

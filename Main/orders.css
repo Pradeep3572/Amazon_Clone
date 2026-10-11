@@ -183,3 +183,10 @@ body{
         width:100%;
     }
 }
+.cart-num
+{
+    position: absolute;
+    top:2px;
+    left:20px;
+    
+}
