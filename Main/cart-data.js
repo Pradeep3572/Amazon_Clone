@@ -10,24 +10,22 @@
     export let placedOrder =
         JSON.parse(localStorage.getItem('placed-order')) || [];
 
-    export let presentDate = JSON.parse(localStorage.getItem('date'));
     
-    export function saveOrder() 
-    {
-    presentDate = dayjs().format('MMMM D');
+    
+export function saveOrder() {
 
-    const newOrder = structuredClone(cart);
+    const orderDateTime = dayjs().toISOString();
+
+    const newOrder = {
+        orderDateTime: orderDateTime,
+        items: structuredClone(cart)
+    };
 
     placedOrder.push(newOrder);
 
     localStorage.setItem(
         'placed-order',
         JSON.stringify(placedOrder)
-    );
-
-    localStorage.setItem(
-        'date',
-        JSON.stringify(presentDate)
     );
 
     cart.length = 0;

@@ -1,4 +1,4 @@
-    import {cart,presentDate,saveOrder,placedOrder} from "./cart-data.js"
+    import {cart,saveOrder,placedOrder} from "./cart-data.js"
     let html='';
     let shippingCost=JSON.parse(localStorage.getItem('shipping-cost'))||0;
     let currDate=dayjs();
@@ -360,12 +360,15 @@ function placeOrder() {
             'Final Bills',
             JSON.stringify(bill)
         );
-        const newOrder = saveOrder();
         cart.forEach((prod) => {
             localStorage.removeItem(`delivery-${prod.id}`);
         });
+        
         shippingCost = 0;
         localStorage.removeItem('shipping-cost');
+        const newOrder = saveOrder();
+        refresh();
+
     });
 }
 
