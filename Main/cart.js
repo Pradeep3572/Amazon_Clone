@@ -321,17 +321,31 @@
                 }
                 else{
                 let quantity=Number(quantityNumber);
-
-                if(quantity>0 &&  Number.isInteger(quantity))
+    
+                 if(quantity>0 &&  Number.isInteger(quantity))
+                    
                 {
-                    cartItem.qty=Number(quantity);
-                    localStorage.setItem('cart-items',JSON.stringify(cart));
-                    found=false;
+                    if(quantity<=5)
+                    {
+                        cartItem.qty=Number(quantity);
+                        localStorage.setItem('cart-items',JSON.stringify(cart));
+                        found=false;
+                    }
+                    else
+                    {
+                        alert("Quantity Cannot be more than 5")
+
+                    }
                 }
+
                 
+                else if(quantity<=0)
+                {
+                    alert("Quantity cannot be 0 or less than 0")
+                }
                 else
                 {
-                    alert("Quantity cannot be 0 or less thn 0")
+                    alert("Quantity Cannot be a Alphabet")
                 }
             }
                 }
